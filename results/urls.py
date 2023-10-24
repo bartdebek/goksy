@@ -1,9 +1,15 @@
 from django.urls import path, include
 
-from .views import (
-    ResultsView
+from results.views import (
+    ListResults,
+    PostResult,
+    ListTracks,
+    PostTrack
 )
 
 urlpatterns = [
-    path('my-results/', ResultsView.as_view(), name='my-results')
+    path('', ListResults.as_view(), name='my-results'),
+    path('upload/', PostResult.as_view(), name='post-results'),
+    path('tracks/', ListTracks.as_view(), name='tracks'),
+    path('tracks/upload/', PostTrack.as_view(), name='post-tracks'),
 ]
